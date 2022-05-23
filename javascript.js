@@ -63,7 +63,59 @@ $.getJSON ("llista_original.php", function(pelis) {
 /* final JSON */
 });
 
+$("#link-sxxi").click(function()
+{   
+    $("section").removeClass("order01");
+    $("section").addClass("order02");
+    $("#sxxi").removeClass("order02");
+    $("#sxxi").addClass("order01");
+    window.scrollTo(0, 0);
+});
 
+$("#link-fin-milenio").click(function()
+{   
+    $("section").removeClass("order01");
+    $("section").addClass("order02");
+    $("#fin-milenio").removeClass("order02");
+    $("#fin-milenio").addClass("order01");
+    window.scrollTo(0, 0);
+});
+
+$("#link-classic").click(function()
+{   
+    $("section").removeClass("order01");
+    $("section").addClass("order02");
+    $("#classic").removeClass("order02");
+    $("#classic").addClass("order01");
+    window.scrollTo(0, 0);
+});
+
+$("#link-she").click(function()
+{   
+    $("section").removeClass("order01");
+    $("section").addClass("order02");
+    $("#she").removeClass("order02");
+    $("#she").addClass("order01");
+    window.scrollTo(0, 0);
+});
+
+$("#link-comedia").click(function()
+{   
+    $("section").removeClass("order01");
+    $("section").addClass("order02");
+    $("#comedia").removeClass("order02");
+    $("#comedia").addClass("order01");
+    window.scrollTo(0, 0);
+});
+
+$("#link-no-english").click(function()
+{   
+    $("section").removeClass("order01");
+    $("section").addClass("order02");
+    $("#no-english").removeClass("order02");
+    $("#no-english").addClass("order01");
+    window.scrollTo(0, 0);
+});
 
 
 

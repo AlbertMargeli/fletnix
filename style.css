@@ -6,7 +6,7 @@ html, body {height: 100%;}
 img {max-width: 100%; display: block;}
 h1, h2, h3, p {margin: 0;}
 a {font-size: 16px; color: white;}
-a:hover {color: #f99f9f}
+a:hover {color: #f99f9f; cursor: pointer;;}
 
         /* LOADER */
         #carregant {position: fixed; inset: 0 0 0 0; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 900; background-color: #520505; color: white;}
@@ -30,8 +30,7 @@ nav {width: 100%; display: flex; justify-content: center; column-gap: 30px;}
 nav a {font-weight: 700; font-size: 20px; text-decoration: none;}
 body {font-size: 2vw; font-family: 'Open Sans', sans-serif; padding: 10vw 5vw 5vw 5vw; line-height: 1; background-color: #520505; background: linear-gradient(170deg, #520505, #520505 92%, #2c0303 92%, #2c0303 95%,#520505 95%) fixed;}
 
-section+section {margin-top: 120px;}
-main section:last-child {padding-bottom: 5vw;}
+section {padding-bottom: 5vw;}
 .slider {width: 100%;}
 .splide__track {width: 94%; margin: auto;}
 .movie {padding: 10px;}
@@ -70,4 +69,6 @@ span.pais {padding-left: 10px;}
 .stars {padding-block: 10px; filter: brightness(0.8);}
 .stars img {width: 13%;}
 
-    
+.order01 {order: 1;}
+.order02 {order: 2;}
+main {display: flex; flex-direction: column;}
