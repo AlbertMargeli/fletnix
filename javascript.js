@@ -33,7 +33,9 @@ $.getJSON ("llista_original.php", function(pelis) {
                 mostrarEstrellas = mostrarEstrellas + estrellaHalf;
                 for(y=1; y<menosQueCinco; y++) {mostrarEstrellas = mostrarEstrellas+estrellaOff;}}
 
-        imprimir = '<li class="splide__slide movie"><div class="movie-back"><h2 class="titol">'+pelis[n]["titol"]+'</h2><img class="portada" src="img/covers/'+pelis[n]["image"]+'.jpg"><h3 class="director">'+pelis[n]["director"]+'</h3><p class="dades"><span class="any">'+pelis[n]["any"]+'</span> / <span class="pais">'+pelis[n]["pais"]+'</span></p><a class="google" href="https://www.google.com/search?q='+pelis[n]["titol"]+' '+pelis[n]["director"]+' " target="_blank">Més info</a><div class="stars">'+mostrarEstrellas+'</div><div></li>'
+        /* layout pel·lícules */   
+
+        imprimir = '<li class="splide__slide movie"><div class="movie-back"><h2 class="titol">'+pelis[n]["titol"]+'</h2><a href="video.html" class="open-video"><img class="portada" src="img/covers/'+pelis[n]["image"]+'.jpg"></a><h3 class="director">'+pelis[n]["director"]+'</h3><p class="dades"><span class="any">'+pelis[n]["any"]+'</span> / <span class="pais">'+pelis[n]["pais"]+'</span></p><a class="google" href="https://www.google.com/search?q='+pelis[n]["titol"]+' '+pelis[n]["director"]+' " target="_blank">Més info</a><div class="stars">'+mostrarEstrellas+'</div><div></li>'
 
         if(pelis[n]["any"]>1999) {$('#splide__list_sxxi').append(imprimir);}
             else if(pelis[n]["any"]<1980) {$('#splide__list_classic').append(imprimir);}       
@@ -45,23 +47,27 @@ $.getJSON ("llista_original.php", function(pelis) {
         if(pelis[n]["comedia"]==1) {$('#splide__list_comedia').append(imprimir);}
 
         if(pelis[n]["pais"]!="USA" && pelis[n]["pais"]!="UK") {$('#splide__list_no-english').append(imprimir);}
-
-
-        /* layout pel·lícules */
-
-        
-
-        
+             
     }
 
-    var elms = document.getElementsByClassName( 'splide' );
-    for ( var i = 0; i < elms.length; i++ ) {
-    new Splide( elms[ i ], {type: 'loop', perPage: 6}).mount();
-}
+    /* montar sliders */
+       
+    var dispositivesResponsive = window.matchMedia('(min-device-width: 768px)');
+
+    if(dispositivesResponsive.matches) {
+        var elms = document.getElementsByClassName( 'splide' );
+        for ( var i = 0; i < elms.length; i++ ) {
+        new Splide( elms[ i ], {type: 'loop', perPage: 6}).mount();}}
+    else {
+        var elms = document.getElementsByClassName( 'splide' );
+        for ( var i = 0; i < elms.length; i++ ) {
+        new Splide( elms[ i ], {type: 'loop', perPage: 2, arrows: false}).mount();}};
 
 
 /* final JSON */
 });
+
+/* MAIN MENU */
 
 $("#link-sxxi").click(function()
 {   
@@ -116,6 +122,15 @@ $("#link-no-english").click(function()
     $("#no-english").addClass("order01");
     window.scrollTo(0, 0);
 });
+
+/* MOBILE MENU */
+
+$("#mobile-menu").click(function() {
+    $("#off-canvas").animate({top: "200px"});
+    $("body").css("overflow", "hidden")
+});
+
+
 
 
 

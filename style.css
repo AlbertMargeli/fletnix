@@ -6,12 +6,11 @@ html, body {height: 100%;}
 img {max-width: 100%; display: block;}
 h1, h2, h3, p {margin: 0;}
 a {font-size: 16px; color: white;}
-a:hover {color: #f99f9f; cursor: pointer;;}
+a:hover {color: #f99f9f; cursor: pointer;}
 
         /* LOADER */
         #carregant {position: fixed; inset: 0 0 0 0; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 900; background-color: #520505; color: white;}
-        #carregant h2 {background: linear-gradient(-45deg, white, #E50914, white, #E50914, white, #E50914, white, #E50914, white, #E50914, white, #E50914, white, #E50914, white, #E50914);
-            background-size: 400% 400%; animation: gradient 20s ease alternate infinite; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 200px;}
+        #carregant h2 {background: linear-gradient(-45deg, white, #E50914, white, #E50914, white, #E50914, white, #E50914, white, #E50914, white, #E50914, white, #E50914, white, #E50914); background-size: 400% 400%; animation: gradient 20s ease alternate infinite; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 200px;}
         #carregant p {font-weight: 700; animation: expanding 1s ease alternate infinite;}
             
         @keyframes gradient {
@@ -30,6 +29,7 @@ nav {width: 100%; display: flex; justify-content: center; column-gap: 30px;}
 nav a {font-weight: 700; font-size: 20px; text-decoration: none;}
 body {font-size: 2vw; font-family: 'Open Sans', sans-serif; padding: 10vw 5vw 5vw 5vw; line-height: 1; background-color: #520505; background: linear-gradient(170deg, #520505, #520505 92%, #2c0303 92%, #2c0303 95%,#520505 95%) fixed;}
 
+main {display: flex; flex-direction: column;}
 section {padding-bottom: 5vw;}
 .slider {width: 100%;}
 .splide__track {width: 94%; margin: auto;}
@@ -38,8 +38,8 @@ section {padding-bottom: 5vw;}
 .movie * {text-align: center;}
 .stars {display: flex; justify-content: center; row-gap: 5px;}
 
-h1 {position: relative; font-size: 60px; font-weight: 700; color: white; margin: 0;}
-h2 {font-size: 20px; color: white; }
+h1 {font-size: 60px; font-weight: 700; color: white;}
+h2 {font-size: 20px; color: white;}
 h3 {font-size: 18px; color: #f99f9f; padding-top: 10px;}
 
 h1 span:nth-child(odd) {color: #E50914;}
@@ -56,10 +56,10 @@ h2#motto {letter-spacing: 0.4ch;}
 .splide__pagination>li:first-child button {border-radius: 4px 0 0 4px;}
 .splide__pagination>li:last-child button {border-radius: 0 4px 4px 0;}
 .splide__pagination li {line-height: 0; padding: 0; margin: 0; border-radius: 0; width: fit-content; display: flex; align-items: center;}
-.splide__pagination__page {background-color: #f99f9f; width: 80px; height: 12px; border-radius: 0; margin: 0%; pointer-events: none; opacity: 1;}
+.splide__pagination__page {background-color: #f99f9f; width: 80px; height: 6px; border-radius: 0; margin: 0%; pointer-events: none; opacity: 1;}
 .splide__pagination__page.is-active {transform: scale(1); background-color: #520505}
 
-.portada {width: 75%;}
+.portada {width: 75%; margin: auto;}
 h2.titol {height: 65px;}
 .director {line-height: 1; height: 55px;}
 .movie-back>*:nth-child(1n+4) {line-height: 1.6;}
@@ -71,4 +71,9 @@ span.pais {padding-left: 10px;}
 
 .order01 {order: 1;}
 .order02 {order: 2;}
-main {display: flex; flex-direction: column;}
+
+#mobile-menu, #off-canvas {display: none;}
+
+body#video {padding: 0;}
+#video-container {width: 100%;}
+video {display: block;}
