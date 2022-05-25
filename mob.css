@@ -4,7 +4,7 @@
 @media screen and (max-device-width: 767px) {
 
     body {height: 100vh; font-size: 16px; padding: 20px; padding-top: 30vw;}
-    header {display: grid; grid-template-columns: auto auto; grid-template-rows: auto auto; gap: 10px; padding: 10px 20px 20px 20px;}
+    #header-inner {display: grid; grid-template-columns: auto auto; grid-template-rows: auto auto; gap: 10px; padding: 10px 20px 20px 20px;}
     #menu-principal a {display: none;}
     header img {mix-blend-mode: lighten;}
     section {padding-bottom: 10vw;}
@@ -30,7 +30,21 @@
     .splide__pagination {bottom: -20px;}
     .splide__pagination__page {width: 30px;}
 
-    #off-canvas {position: absolute; inset: -100% 0 auto 0; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #e50914; z-index: 900; row-gap: 100px; z-index: 900; height: 90vh;}
-    #off-canvas a {font-size: 40px; font-weight: 700;}
+    #off-canvas {position: absolute; bottom: 100%; left: 0; right: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #e50914; z-index: 900; row-gap: 100px; z-index: 90; height: 100vh;}
+    #off-canvas a {font-size: 50px; font-weight: 700;}
+
+    .topzero {animation: topzero 1500ms forwards;}
+
+    @keyframes topzero {
+        0% {top: -100vh; background-color: #520505; opacity: 1}
+        50% {background-color: #520505;}
+        100% {top: 0; background-color: #e50914;}}
+
+    .estrenyer {animation: estrenyer 1500ms forwards;}
+
+    @keyframes estrenyer {
+        0% {transform: scale(100%);}
+        100% {transform: scale(0%);}
+    }
 
 }
