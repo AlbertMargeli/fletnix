@@ -21,7 +21,6 @@
 	<header>
 		<div id="header-inner">
 			<h1><span>F</span><span>l</span><span>E</span><span>t</span><span>N</span><span>i</span><span id="x-gran">X</span></h1>
-			<h2 id="motto"><em>MOVIES A TUTIPLÉN</em></h2>
 			<nav id="menu-principal">
 				<a id="link-sxxi">Screen XXI</a>
 				<a id="link-fin-milenio">Fin del milenio</a>
@@ -37,6 +36,7 @@
 					<span class="barra-burger"></span>
 					<span>MENÚ</span></div>
 			</nav>
+			<h2 id="motto"><em>MOVIES A TUTIPLÉN</em></h2>			
 		</div>
 		<div id="off-canvas">
 			<a id="link-sxxi-off" class="link-off">Screen XXI</a>
@@ -47,6 +47,56 @@
 			<a id="link-no-english-off"class="link-off">I don't speak English</a>
 		</div>
 	</header>
+	<div id="afegeix">
+		Afegeix la pel·lícula que vulguis
+	</div>
+	<div id="formulari-container">
+		<div id="formulari-container-inner">
+			<h2>Afegeix una pel·lícula</h2>
+			<form method="POST" action="pellicules_add.php" enctype="multipart/form-data">
+				<label for="titol" class="form-padd-top">Títol de la pel·lícula</label>
+				<input type="text" id="titol" name="titol">
+				<div class="form-row">
+					<div class="form-col">
+						<label for="director" class="form-padd-top">Director</label>
+						<input type="text" id="director" name="director">
+					</div>
+					<div class="form-col">
+						<label for="pais" class="form-padd-top">País</label>
+						<input type="text" id="pais" name="pais">
+					</div>
+				</div>
+					<label for="any" class="form-padd-top">Any d'estrena</label>
+					<input type="number" min="1900" max="2022" id="any" name="any">
+
+				<div id="grup-animacio" class="form-padd-top">
+					<label for="animació">És una pel·lícula d'animació?</label>
+					<input type="radio" id="animacio-s" name="animacio" value="0" class=""><span>Sí</span>
+					<input type="radio" id="animacio-n" name="animacio" value="1"><span>No</span>
+				</div>
+
+				<div id="grup-dona">
+					<label for="dona">La directora és una dona?</label>
+					<input type="radio" id="dona-s" name="dona" value="0" class=""><span>Sí</span>
+					<input type="radio" id="dona-n" name="dona" value="1"><span>No</span>
+				</div>
+
+				<div id="grup-comedia">
+					<label for="comedia">És una comèdia?</label>
+					<input type="radio" id="comedia-s" name="comedia" value="0" class=""><span>Sí</span>
+					<input type="radio" id="comedia-n" name="comedia" value="1"><span>No</span>
+				</div>
+
+					<label for="puntuacio">Puntuació</label>
+					<input type="number" min="0" max="" id="puntuacio" name="puntuacio">
+				<div>
+
+				</div>
+				<input type="file" name="imatge" id="pujar-imatge">
+				<input type="submit" value="ENVIAR">
+			</form>
+		</div>
+	</div>
 	<div id="carregant"><h2>FlEtNi<span id="x-gran">X</span></h2><p>CARREGANT PEL·LÍCULES</p></div>
 	<main>
 
