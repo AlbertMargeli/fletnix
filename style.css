@@ -28,9 +28,9 @@ header {position: fixed; inset: 0 0 auto 0; z-index: 1000;}
 #header-inner {position: relative; padding: 3px 100px 6px 100px; width: 100%; display: flex; justify-content: space-between; align-items: center; background-color: hsla(0, 87%, 7%, 0.9); z-index: 100;}
 nav {width: 100%; display: flex; justify-content: center; column-gap: 30px;}
 nav a {font-weight: 700; font-size: 20px; text-decoration: none;}
-body {font-size: 2vw; font-family: 'Open Sans', sans-serif; padding-top: 70px; line-height: 1; background-color: #520505; background: linear-gradient(170deg, #520505, #520505 92%, #2c0303 92%, #2c0303 95%,#520505 95%) fixed;}
+body {font-size: 2vw; font-family: 'Open Sans', sans-serif; padding-top: 70px; line-height: 1; background-color: #520505; background: linear-gradient(170deg, #520505, #520505 92%, #2c0303 92%, #2c0303 95%,#520505 95%) fixed; }
 
-main {display: flex; flex-direction: column;}
+main {display: flex; flex-direction: column; overflow: hidden;}
 section.hero-container {padding-bottom: 1.5vw;}
 section.main-container {width: 90vw; margin: auto; padding-bottom: 5vw;}
 .slider {width: 100%;}
@@ -43,17 +43,19 @@ section.main-container {width: 90vw; margin: auto; padding-bottom: 5vw;}
 h1 {font-size: 50px; font-weight: 700; color: white;}
 h2 {font-size: 20px; color: white;}
 h3 {font-size: 18px; color: #f99f9f; padding-top: 10px;}
+a#logo {text-decoration: none;}
 
 h1 span:nth-child(odd) {color: #E50914;}
 #x-gran {font-size: 1.2em;}
 h2#motto {letter-spacing: 0.4ch;}
 
 section#video-tocho.main-container {width: 100%;}
+section#video-tocho.hero-container {display: grid;}
+section#video-tocho.hero-container>* {grid-column: 1/2; grid-row: 1/2;}
 
 .main-container>h2 {font-size: 30px; padding: 0 0 20px 80px; font-style: italic; letter-spacing: 0.25ch;}
 .splide__slide:hover {cursor: grab;}
 .main-container.splide__arrows {transform: translateY(11vw);}
-.main-container.splide__arrow:hover:not(:disabled) {opacity: 1; background-color: #f99f9f}
 
 .splide__pagination {background-color: #f99f9f; width: fit-content; height: auto; margin: auto; border-radius: 4px; bottom: -0.5em; padding: 2px; pointer-events: none;}
 .splide__pagination:hover {opacity: 0.2;}
@@ -72,6 +74,8 @@ span.any {padding-right: 10px;}
 span.pais {padding-left: 10px;}
 .stars {padding-block: 10px; filter: brightness(0.8);}
 .stars img {width: 13%;}
+a.eliminar {color: #f99f9f; font-size: 12px; text-decoration: line-through;}
+a.eliminar:hover {color: white; text-decoration: none;}
 
 .order01 {order: 1;}
 .order02 {order: 2;}
@@ -82,8 +86,8 @@ body#video {padding: 0;}
 #video-container {width: 100%;}
 video {display: block;}
 
-#formulari-container {position: absolute; inset: 0 0 0 0; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #520505cc; z-index: 800; }
-#formulari-container-inner {background-color: #E50914; padding:50px; border-radius: 4px;}
+#formulari-container {position: absolute; inset: 0 0 0 0; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; z-index: 1100; }
+#formulari-container-inner {background-color: #E50914; padding:50px; border-radius: 4px; display: flex; flex-direction: column; justify-content: center;}
 form {display: flex; flex-direction: column; justify-content: center; align-items: center;}
 #formulari-container h2 {font-size: 40px; font-style: italic; letter-spacing: 0.25ch; padding-bottom: 20px; text-align: center;}
 label {font-size: 20px; font-weight: 700; color: white; line-height: 2; letter-spacing: 0.25ch;}
@@ -102,6 +106,8 @@ input[type="radio"] {width: 10px;}
 #pujar-imatge {position: relative; width: 200px; height: 50px; margin-top: 20px;}
 #pujar-imatge::after {content: 'Afegir la portada'; width: auto; background-color: #520505; color: white; position: absolute; inset: 0 0 0 0; font-size: 16px; font-weight: 700; display: flex; justify-content: center; align-items: center; line-height: 4; border-radius: 4px;}
 #pujar-imatge:hover::after {background-color: #f99f9f; color: #520505; cursor: pointer;}
+button#tancar-formulari {margin: auto; color: #f99f9f; background: transparent; font-size: 16px; font-weight: 700; text-decoration: underline; border: 0; padding-top: 20px;}
+button#tancar-formulari:hover {cursor: pointer; color:#520505;}
 
 input[type="submit"] {width: 200px; height: 50px; margin-top: 20px; background-color: #f99f9f; color: #520505; border:0; font-size: 16px; font-weight: 700; display: flex; justify-content: center; align-items: center; border-radius: 4px;}
 input[type="submit"]:hover {background-color: white; color: #E50914; cursor: pointer;}
@@ -111,16 +117,72 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {-webkit-appe
 #afegeix {width: 190px; height: 190px; border-radius: 100% 0 0 0 ; display: flex; justify-content: center; align-items: center; background-color: #E50914; position: fixed; z-index: 1000; text-align: center; color: white; font-weight: 700; font-style: italic; font-size: 20px; bottom: 0; right: 0; padding: 30px 20px 0 50px; line-height: 1.5; letter-spacing: 0.1ch;}
 #afegeix:hover {background-color: white; color: #E50914; cursor: pointer;}
 
-#formulari-container {display: none;}
+#video-tocho .splide__track {margin: 0; width: 100%;}
+#video-tocho .splide__slide {display: grid;}
+#video-tocho .splide__slide>* {width: 100%; width: 100%; aspect-ratio: 1920/676; grid-column: 1/2; grid-row: 1/2;}
+.static {opacity: 0.15}
+.button-tocho-container {display: flex; aspect-ratio: 1920/676; justify-content: end; align-items: start; padding-right: 10%; padding-top: 2.5%;}
+.button-tocho-container button {background-color: #E50914; color: white; text-decoration: none; font-size: 25px; border-radius: 4px; font-weight: 700; padding: 10px 20px; border: 0;}
+.button-tocho-container button#button-trailer-girl {background-color: #520505;}
+.button-tocho-container button:hover, .button-tocho-container button#button-trailer-girl:hover {background-color: #f99f9f; color: #520505; cursor: pointer;}
+
+.fondo-tocho {z-index: 1} .static {z-index: 2} .titol-tocho {z-index: 3} .button-tocho-container {z-index: 4} .iframe-container {z-index: 5;}
+
+.iframe-container {background-color: #000000aa; display: grid;/*display: none*/;}
+.iframe-container>* {grid-column: 1/2; grid-row: 1/2;}
+.button-iframe-container {display: flex; justify-content: end; align-items: start; padding-right: 10%; padding-top: 2.25%;}
+.iframe-container button {width: fit-content; background-color: #E50914; color: white; text-decoration: none; font-size: 25px; border-radius: 4px; font-weight: 700; padding: 10px 20px; border: 0;}
+.iframe-container button:hover {background-color: #f99f9f; color: #520505; cursor: pointer;}
+iframe {width: 45%; aspect-ratio: 16/9; margin: auto;}
+
+
+.fora-pantalla {transform: translateX(-100%)}
+
+.moure-cap-a-dins {animation: moure-cap-a-dins 800ms ease-in-out forwards;}
+
+            @keyframes moure-cap-a-dins {
+                100% {transform: translateX(0%);}
+            }
+
+.moure-cap-a-fora {animation: moure-cap-a-fora 1000ms ease-in-out forwards;}
+
+            @keyframes moure-cap-a-fora {
+                100% {transform: translateX(100%);}
+            }
+
+
+#formulari-container.nodisplay {display: none;}
+
+.show-formulari {animation: show-formulari 1000ms forwards}
+
+            @keyframes show-formulari {
+                0% {background-color: #52050500}
+                50% {background-color: #ff000066}
+                100% {background-color: #520505cc}
+            }
+
+.moure-cap-amunt {animation: moure-cap-amunt 1000ms forwards}
+
+            @keyframes moure-cap-amunt {
+                0% {transform: translate(100%, 100%)};
+                100% {transform: translate(0, 0);}
+            }
+
+.amaga-formulari {animation: amaga-formulari 800ms forwards}
+
+            @keyframes amaga-formulari {
+                70% {transform: scale(10%)}
+                75% {opacity: 1;}
+                100% {transform: scale(100%); opacity: 0;}
+            }
 
 .desplazar-afegeix {animation: desplazar-afegeix 500ms ease-in forwards ;}
 
             @keyframes desplazar-afegeix {
                 100% {transform: translate(100%, 100%);}}
 
-#video-tocho .splide__track {margin: 0; width: 100%;}
-#video-tocho .splide__slide {display: grid;}
-#video-tocho .splide__slide img {grid-column: 1/2; grid-row: 1/2;}
+.tornar-afegeix {animation: tornar-afegeix 500ms ease-in forwards ;}
 
-.static {width: 100%; aspect-ratio: 1920/676; opacity: 0.2}
-.titol-tocho {z-index: 10;}
+            @keyframes tornar-afegeix {
+                0% {transform: translate(100%, 100%);}
+                100% {transform: translate(0, 0);}}

@@ -35,7 +35,7 @@ $.getJSON ("llista_original.php", function(pelis) {
 
         /* layout pel·lícules */   
 
-        imprimir = '<li class="splide__slide movie"><div class="movie-back"><h2 class="titol">'+pelis[n]["titol"]+'</h2><a href="video.html" class="open-video"><img class="portada" src="img/covers/'+pelis[n]["image"]+'.jpg"></a><h3 class="director">'+pelis[n]["director"]+'</h3><p class="dades"><span class="any">'+pelis[n]["any"]+'</span> / <span class="pais">'+pelis[n]["pais"]+'</span></p><a class="google" href="https://www.google.com/search?q='+pelis[n]["titol"]+' '+pelis[n]["director"]+' " target="_blank">Més info</a><div class="stars">'+mostrarEstrellas+'</div><div></li>'
+        imprimir = '<li class="splide__slide movie"><div class="movie-back"><h2 class="titol">'+pelis[n]["titol"]+'</h2><img class="portada" src="img/covers/'+pelis[n]["image"]+'.jpg"><h3 class="director">'+pelis[n]["director"]+'</h3><p class="dades"><span class="any">'+pelis[n]["any"]+'</span> / <span class="pais">'+pelis[n]["pais"]+'</span></p><a class="google" href="https://www.google.com/search?q='+pelis[n]["titol"]+' '+pelis[n]["director"]+' " target="_blank">Més info</a><div class="stars">'+mostrarEstrellas+'</div><a href="eliminar_pellicula.php?id='+pelis[n]["id"]+'" class="eliminar">Elimina pel·lícula</a><div></li>'
 
         if(pelis[n]["any"]>1999) {$('#splide__list_sxxi').append(imprimir);}
             else if(pelis[n]["any"]<1980) {$('#splide__list_classic').append(imprimir);}       
@@ -77,6 +77,24 @@ $.getJSON ("llista_original.php", function(pelis) {
 $("#afegeix").click(function()
 {
     $(this).addClass("desplazar-afegeix");
+    $("#formulari-container").removeClass("nodisplay");
+    $("#formulari-container").addClass("show-formulari");
+    $("#formulari-container-inner").addClass("moure-cap-amunt");
+    
+    var current = $(window).scrollTop();
+$(window).scroll(function() {
+    $(window).scrollTop(current);
+});
+
+})
+
+
+$("#tancar-formulari").click(function()
+{
+    $("#formulari-container").addClass("amaga-formulari");
+    $("#afegeix").addClass("tornar-afegeix");
+    setTimeout(function() {$("#formulari-container").addClass("nodisplay"); $("#formulari-container").removeClass("amaga-formulari"); $("#afegeix").removeClass("tornar-afegeix");$("#afegeix").removeClass("desplazar-afegeix");$(window).off('scroll');}, 1201)
+    
 })
 
 /* MAIN MENU */
@@ -87,7 +105,7 @@ $("#link-sxxi").click(function()
     $(".main-container").addClass("order02");
     $("#sxxi").removeClass("order02");
     $("#sxxi").addClass("order01");
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 677);
 });
 
 $("#link-fin-milenio").click(function()
@@ -96,7 +114,7 @@ $("#link-fin-milenio").click(function()
     $(".main-container").addClass("order02");
     $("#fin-milenio").removeClass("order02");
     $("#fin-milenio").addClass("order01");
-    window.scrollTo(0, 1000);
+    window.scrollTo(0, 677);
 });
 
 $("#link-classic").click(function()
@@ -105,7 +123,7 @@ $("#link-classic").click(function()
     $(".main-container").addClass("order02");
     $("#classic").removeClass("order02");
     $("#classic").addClass("order01");
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 677);
 });
 
 $("#link-she").click(function()
@@ -114,7 +132,7 @@ $("#link-she").click(function()
     $(".main-container").addClass("order02");
     $("#she").removeClass("order02");
     $("#she").addClass("order01");
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 677);
 });
 
 $("#link-comedia").click(function()
@@ -123,7 +141,7 @@ $("#link-comedia").click(function()
     $(".main-container").addClass("order02");
     $("#comedia").removeClass("order02");
     $("#comedia").addClass("order01");
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 677);
 });
 
 $("#link-no-english").click(function()
@@ -132,7 +150,7 @@ $("#link-no-english").click(function()
     $(".main-container").addClass("order02");
     $("#no-english").removeClass("order02");
     $("#no-english").addClass("order01");
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 677);
 });
 
 
@@ -219,6 +237,47 @@ $("#link-no-english-off").click(function()
     amagarCanvas();
     // 
 });
+
+/* TRAILERS */
+
+$("#button-trailer-shadows").click(function(){
+    $("#iframe-shadows").addClass("moure-cap-a-dins");})
+    
+$("#button-trailer-girl").click(function(){
+    $("#iframe-girl").addClass("moure-cap-a-dins");})
+
+$("#button-trailer-drive").click(function(){
+    $("#iframe-drive").addClass("moure-cap-a-dins");})
+
+$("#tancar-shadows").click(function(){
+    $("#iframe-shadows").removeClass("fora-pantalla");
+    $("#iframe-shadows").removeClass("moure-cap-a-dins")
+    $("#iframe-shadows").addClass("moure-cap-a-fora");
+    setTimeout(function() {
+        $("#iframe-shadows").removeClass("moure-cap-a-fora")
+        $("#iframe-shadows").addClass("fora-pantalla");}
+        , 1200)})
+
+$("#tancar-girl").click(function(){
+    $("#iframe-girl").removeClass("fora-pantalla");
+    $("#iframe-girl").removeClass("moure-cap-a-dins")
+    $("#iframe-girl").addClass("moure-cap-a-fora");
+    setTimeout(function() {
+        $("#iframe-girl").removeClass("moure-cap-a-fora")
+        $("#iframe-girl").addClass("fora-pantalla");}
+        , 1200)})
+
+$("#tancar-drive").click(function(){
+    $("#iframe-drive").removeClass("fora-pantalla");
+    $("#iframe-drive").removeClass("moure-cap-a-dins")
+    $("#iframe-drive").addClass("moure-cap-a-fora");
+    setTimeout(function() {
+        $("#iframe-drive").removeClass("moure-cap-a-fora")
+        $("#iframe-drive").addClass("fora-pantalla");}
+        , 1200)})
+
+
+                
 
 /* final JQUERY */ });
 
