@@ -58,7 +58,9 @@ $.getJSON ("llista_original.php", function(pelis) {
         
         var elms = document.getElementsByClassName( 'splide' );
         for ( var i = 0; i < elms.length; i++ ) {
-        new Splide( elms[ i ], {type: 'loop', perPage: 6}).mount();}}
+
+            if(i==0) {new Splide( elms[ i ], {type: 'loop', perPage: 1, pagination: false, autoplay: true}).mount();}
+            else {new Splide( elms[ i ], {type: 'loop', perPage: 6}).mount();}}}
         
     else {
 
@@ -70,12 +72,19 @@ $.getJSON ("llista_original.php", function(pelis) {
 /* final JSON */
 });
 
+/* AFEGIR PELÍCULES */
+
+$("#afegeix").click(function()
+{
+    $(this).addClass("desplazar-afegeix");
+})
+
 /* MAIN MENU */
 
 $("#link-sxxi").click(function()
 {   
-    $("section").removeClass("order01");
-    $("section").addClass("order02");
+    $(".main-container").removeClass("order01");
+    $(".main-container").addClass("order02");
     $("#sxxi").removeClass("order02");
     $("#sxxi").addClass("order01");
     window.scrollTo(0, 0);
@@ -83,17 +92,17 @@ $("#link-sxxi").click(function()
 
 $("#link-fin-milenio").click(function()
 {   
-    $("section").removeClass("order01");
-    $("section").addClass("order02");
+    $(".main-container").removeClass("order01");
+    $(".main-container").addClass("order02");
     $("#fin-milenio").removeClass("order02");
     $("#fin-milenio").addClass("order01");
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 1000);
 });
 
 $("#link-classic").click(function()
 {   
-    $("section").removeClass("order01");
-    $("section").addClass("order02");
+    $(".main-container").removeClass("order01");
+    $(".main-container").addClass("order02");
     $("#classic").removeClass("order02");
     $("#classic").addClass("order01");
     window.scrollTo(0, 0);
@@ -101,8 +110,8 @@ $("#link-classic").click(function()
 
 $("#link-she").click(function()
 {   
-    $("section").removeClass("order01");
-    $("section").addClass("order02");
+    $(".main-container").removeClass("order01");
+    $(".main-container").addClass("order02");
     $("#she").removeClass("order02");
     $("#she").addClass("order01");
     window.scrollTo(0, 0);
@@ -110,8 +119,8 @@ $("#link-she").click(function()
 
 $("#link-comedia").click(function()
 {   
-    $("section").removeClass("order01");
-    $("section").addClass("order02");
+    $(".main-container").removeClass("order01");
+    $(".main-container").addClass("order02");
     $("#comedia").removeClass("order02");
     $("#comedia").addClass("order01");
     window.scrollTo(0, 0);
@@ -119,12 +128,13 @@ $("#link-comedia").click(function()
 
 $("#link-no-english").click(function()
 {   
-    $("section").removeClass("order01");
-    $("section").addClass("order02");
+    $(".main-container").removeClass("order01");
+    $(".main-container").addClass("order02");
     $("#no-english").removeClass("order02");
     $("#no-english").addClass("order01");
     window.scrollTo(0, 0);
 });
+
 
 /* MOBILE MENU */
 
@@ -210,12 +220,6 @@ $("#link-no-english-off").click(function()
     // 
 });
 
-
-
-
-
-
 /* final JQUERY */ });
-
 
 

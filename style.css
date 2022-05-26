@@ -25,14 +25,14 @@ a:hover {color: #f99f9f; cursor: pointer;}
         /* FINAL LOADER */
 
 header {position: fixed; inset: 0 0 auto 0; z-index: 1000;}
-#header-inner {position: relative; padding: 10px 100px 15px 100px; width: 100%; display: flex; justify-content: space-between; align-items: center; background-color: hsla(0, 87%, 7%, 0.9); z-index: 100;}
+#header-inner {position: relative; padding: 3px 100px 6px 100px; width: 100%; display: flex; justify-content: space-between; align-items: center; background-color: hsla(0, 87%, 7%, 0.9); z-index: 100;}
 nav {width: 100%; display: flex; justify-content: center; column-gap: 30px;}
 nav a {font-weight: 700; font-size: 20px; text-decoration: none;}
-body {font-size: 2vw; font-family: 'Open Sans', sans-serif; padding-top: 10vw; line-height: 1; background-color: #520505; background: linear-gradient(170deg, #520505, #520505 92%, #2c0303 92%, #2c0303 95%,#520505 95%) fixed;}
+body {font-size: 2vw; font-family: 'Open Sans', sans-serif; padding-top: 70px; line-height: 1; background-color: #520505; background: linear-gradient(170deg, #520505, #520505 92%, #2c0303 92%, #2c0303 95%,#520505 95%) fixed;}
 
 main {display: flex; flex-direction: column;}
-section {padding-bottom: 5vw;}
-section.main-container {width: 90vw; margin: auto;}
+section.hero-container {padding-bottom: 1.5vw;}
+section.main-container {width: 90vw; margin: auto; padding-bottom: 5vw;}
 .slider {width: 100%;}
 .splide__track {width: 94%; margin: auto;}
 .movie {padding: 10px;}
@@ -40,7 +40,7 @@ section.main-container {width: 90vw; margin: auto;}
 .movie * {text-align: center;}
 .stars {display: flex; justify-content: center; row-gap: 5px;}
 
-h1 {font-size: 60px; font-weight: 700; color: white;}
+h1 {font-size: 50px; font-weight: 700; color: white;}
 h2 {font-size: 20px; color: white;}
 h3 {font-size: 18px; color: #f99f9f; padding-top: 10px;}
 
@@ -50,10 +50,10 @@ h2#motto {letter-spacing: 0.4ch;}
 
 section#video-tocho.main-container {width: 100%;}
 
-.main-container>h2 {font-size: 40px; padding: 0 0 20px 80px; font-style: italic; letter-spacing: 0.25ch;}
+.main-container>h2 {font-size: 30px; padding: 0 0 20px 80px; font-style: italic; letter-spacing: 0.25ch;}
 .splide__slide:hover {cursor: grab;}
-.splide__arrows {transform: translateY(11vw);}
-.splide__arrow:hover:not(:disabled) {opacity: 1; background-color: #f99f9f}
+.main-container.splide__arrows {transform: translateY(11vw);}
+.main-container.splide__arrow:hover:not(:disabled) {opacity: 1; background-color: #f99f9f}
 
 .splide__pagination {background-color: #f99f9f; width: fit-content; height: auto; margin: auto; border-radius: 4px; bottom: -0.5em; padding: 2px; pointer-events: none;}
 .splide__pagination:hover {opacity: 0.2;}
@@ -108,6 +108,19 @@ input[type="submit"]:hover {background-color: white; color: #E50914; cursor: poi
 
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;}
 
-#afegeix {width: 500px; height: 500px; border-radius: 150% 0 0 150%; display: flex; justify-content: center; align-items: center; background-color: #E50914; position: fixed; z-index: 1000; text-align: center; color: white; font-weight: 700; font-style: italic; font-size: 20px;}
+#afegeix {width: 190px; height: 190px; border-radius: 100% 0 0 0 ; display: flex; justify-content: center; align-items: center; background-color: #E50914; position: fixed; z-index: 1000; text-align: center; color: white; font-weight: 700; font-style: italic; font-size: 20px; bottom: 0; right: 0; padding: 30px 20px 0 50px; line-height: 1.5; letter-spacing: 0.1ch;}
+#afegeix:hover {background-color: white; color: #E50914; cursor: pointer;}
 
 #formulari-container {display: none;}
+
+.desplazar-afegeix {animation: desplazar-afegeix 500ms ease-in forwards ;}
+
+            @keyframes desplazar-afegeix {
+                100% {transform: translate(100%, 100%);}}
+
+#video-tocho .splide__track {margin: 0; width: 100%;}
+#video-tocho .splide__slide {display: grid;}
+#video-tocho .splide__slide img {grid-column: 1/2; grid-row: 1/2;}
+
+.static {width: 100%; aspect-ratio: 1920/676; opacity: 0.2}
+.titol-tocho {z-index: 10;}
