@@ -86,7 +86,7 @@ body#video {padding: 0;}
 #video-container {width: 100%;}
 video {display: block;}
 
-#formulari-container {position: absolute; inset: 0 0 0 0; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; z-index: 1100; }
+#formulari-container {position: fixed; inset: 0 0 0 0; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; z-index: 1100; }
 #formulari-container-inner {background-color: #E50914; padding:50px; border-radius: 4px; display: flex; flex-direction: column; justify-content: center;}
 form {display: flex; flex-direction: column; justify-content: center; align-items: center;}
 #formulari-container h2 {font-size: 40px; font-style: italic; letter-spacing: 0.25ch; padding-bottom: 20px; text-align: center;}

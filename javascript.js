@@ -4,7 +4,7 @@ $(document).ready(function(){ /* inici JQUERY */
 
 $.getJSON ("llista_original.php", function(pelis) {
 
-    setTimeout(function() {$("#carregant").fadeOut();}, 100)
+    setTimeout(function() {$("#carregant").fadeOut();}, 1000)
 
 
     estrellaOn = '<img src="img/stars/star_on.png">';
@@ -80,11 +80,6 @@ $("#afegeix").click(function()
     $("#formulari-container").removeClass("nodisplay");
     $("#formulari-container").addClass("show-formulari");
     $("#formulari-container-inner").addClass("moure-cap-amunt");
-    
-    var current = $(window).scrollTop();
-$(window).scroll(function() {
-    $(window).scrollTop(current);
-});
 
 })
 
@@ -152,7 +147,6 @@ $("#link-no-english").click(function()
     $("#no-english").addClass("order01");
     window.scrollTo(0, 677);
 });
-
 
 /* MOBILE MENU */
 
@@ -275,9 +269,6 @@ $("#tancar-drive").click(function(){
         $("#iframe-drive").removeClass("moure-cap-a-fora")
         $("#iframe-drive").addClass("fora-pantalla");}
         , 1200)})
-
-
-                
 
 /* final JQUERY */ });
 
