@@ -88,6 +88,9 @@ $("#tancar-formulari").click(function()
 {
     $("#formulari-container").addClass("amaga-formulari");
     $("#afegeix").addClass("tornar-afegeix");
+    $("label").removeClass("canviar-brillo");
+    $(':input').removeAttr('placeholder');
+    $("form").trigger("reset");
     setTimeout(function() {$("#formulari-container").addClass("nodisplay"); $("#formulari-container").removeClass("amaga-formulari"); $("#afegeix").removeClass("tornar-afegeix");$("#afegeix").removeClass("desplazar-afegeix");$(window).off('scroll');}, 1201)
     
 })
@@ -100,7 +103,7 @@ $("#link-sxxi").click(function()
     $(".main-container").addClass("order02");
     $("#sxxi").removeClass("order02");
     $("#sxxi").addClass("order01");
-    window.scrollTo(0, 677);
+    window.scrollTo(0, 671);
 });
 
 $("#link-fin-milenio").click(function()
@@ -109,7 +112,7 @@ $("#link-fin-milenio").click(function()
     $(".main-container").addClass("order02");
     $("#fin-milenio").removeClass("order02");
     $("#fin-milenio").addClass("order01");
-    window.scrollTo(0, 677);
+    window.scrollTo(0, 671);
 });
 
 $("#link-classic").click(function()
@@ -118,7 +121,7 @@ $("#link-classic").click(function()
     $(".main-container").addClass("order02");
     $("#classic").removeClass("order02");
     $("#classic").addClass("order01");
-    window.scrollTo(0, 677);
+    window.scrollTo(0, 671);
 });
 
 $("#link-she").click(function()
@@ -127,7 +130,7 @@ $("#link-she").click(function()
     $(".main-container").addClass("order02");
     $("#she").removeClass("order02");
     $("#she").addClass("order01");
-    window.scrollTo(0, 677);
+    window.scrollTo(0, 671);
 });
 
 $("#link-comedia").click(function()
@@ -136,7 +139,7 @@ $("#link-comedia").click(function()
     $(".main-container").addClass("order02");
     $("#comedia").removeClass("order02");
     $("#comedia").addClass("order01");
-    window.scrollTo(0, 677);
+    window.scrollTo(0, 671);
 });
 
 $("#link-no-english").click(function()
@@ -145,7 +148,7 @@ $("#link-no-english").click(function()
     $(".main-container").addClass("order02");
     $("#no-english").removeClass("order02");
     $("#no-english").addClass("order01");
-    window.scrollTo(0, 677);
+    window.scrollTo(0, 671);
 });
 
 /* MOBILE MENU */
@@ -235,18 +238,22 @@ $("#link-no-english-off").click(function()
 /* TRAILERS */
 
 $("#button-trailer-shadows").click(function(){
+    $("#iframe-container-shadows").html('<iframe src="video-shadows.html" scrolling="no";></iframe>')
     $("#iframe-shadows").addClass("moure-cap-a-dins");})
     
 $("#button-trailer-girl").click(function(){
+    $("#iframe-container-girl").html('<iframe src="video-girl.html" scrolling="no";></iframe>')
     $("#iframe-girl").addClass("moure-cap-a-dins");})
 
 $("#button-trailer-drive").click(function(){
+    $("#iframe-container-drive").html('<iframe src="video-drive.html" scrolling="no";></iframe>')
     $("#iframe-drive").addClass("moure-cap-a-dins");})
 
 $("#tancar-shadows").click(function(){
     $("#iframe-shadows").removeClass("fora-pantalla");
     $("#iframe-shadows").removeClass("moure-cap-a-dins")
     $("#iframe-shadows").addClass("moure-cap-a-fora");
+    $("#iframe-container-shadows").html('')
     setTimeout(function() {
         $("#iframe-shadows").removeClass("moure-cap-a-fora")
         $("#iframe-shadows").addClass("fora-pantalla");}
@@ -256,6 +263,7 @@ $("#tancar-girl").click(function(){
     $("#iframe-girl").removeClass("fora-pantalla");
     $("#iframe-girl").removeClass("moure-cap-a-dins")
     $("#iframe-girl").addClass("moure-cap-a-fora");
+    $("#iframe-container-girl").html('')
     setTimeout(function() {
         $("#iframe-girl").removeClass("moure-cap-a-fora")
         $("#iframe-girl").addClass("fora-pantalla");}
@@ -265,6 +273,7 @@ $("#tancar-drive").click(function(){
     $("#iframe-drive").removeClass("fora-pantalla");
     $("#iframe-drive").removeClass("moure-cap-a-dins")
     $("#iframe-drive").addClass("moure-cap-a-fora");
+    $("#iframe-container-drive").html('')
     setTimeout(function() {
         $("#iframe-drive").removeClass("moure-cap-a-fora")
         $("#iframe-drive").addClass("fora-pantalla");}

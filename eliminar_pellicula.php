@@ -26,7 +26,7 @@ if ($conn->connect_error) {
 if ($conn->query($sql) === TRUE) { //tot ok
   echo "Ok! Registre eliminat.";
   //eliminem la imatge
-  unlink("/img/covers/$id.jpg");
+  unlink("img/covers/$id.jpg");
   //redireccionem a index
   header("Location: index.html");
   die();

@@ -50,17 +50,24 @@
   $tamany_max = 5242880;
   $ruta_temporal = $_FILES['imatge']['tmp_name'];
   //comprovo características
-  if (!(strpos($tipus_arxiu, "jpeg")) && ($tamany_arxiu < $tamany_max)) {
-     	echo "Extensió o tamany de la imatge incorrecte.";
-  }else{
-     	if (move_uploaded_file($ruta_temporal, $ruta_desti)){
-        		echo "L'arxiu s'ha carregat correctament.";
+
+  if($tipus_arxiu != "") { //si s'ha escollit imatge per pujar...
+    if (!(strpos($tipus_arxiu, "jpeg")) || ($tamany_arxiu > $tamany_max)) {
+      echo "Extensió o tamany de la imatge incorrecte";
+      header( "Refresh:5; url=index.html", true, 303);
+    }else{
+        if (move_uploaded_file($ruta_temporal, $ruta_desti)){
+            echo "L'arxiu s'ha carregat correctament.";
             header("Location: index.html");
             die();
-     	}else{
-        		echo "Error fatal al pujar l'arxiu.";
-     	}
+        }else{
+            echo "Error fatal al pujar l'arxiu.";
+        }
+    }
+  }else{ //no s'ha escollit imatge... tornem al index
+    header("Location: index.html");
   }
+  
 
 $conn->close(); //tanquem la connexió amb la base de dades
 ?>

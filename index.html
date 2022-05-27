@@ -79,9 +79,9 @@
 					</ul>
 				</div>
 			</div>
-			<div class="iframe-container fora-pantalla" id="iframe-shadows"><div class="button-iframe-container"><button id="tancar-shadows">TANCAR TRAILER</button></div><iframe src="video-shadows.html" scrolling="no";></iframe></div>
-			<div class="iframe-container fora-pantalla" id="iframe-girl"><div class="button-iframe-container"><button id="tancar-girl">TANCAR TRAILER</button></div><iframe src="video-girl.html" scrolling="no";></iframe></div>
-			<div class="iframe-container fora-pantalla" id="iframe-drive"><div class="button-iframe-container"><button id="tancar-drive">TANCAR TRAILER</button></div><iframe src="video-drive.html" scrolling="no";></iframe></div>
+			<div class="iframe-container fora-pantalla" id="iframe-shadows"><div class="button-iframe-container"><button id="tancar-shadows">TANCAR TRAILER</button></div><div class="iframe-container-trailer" id="iframe-container-shadows"></div></div>
+			<div class="iframe-container fora-pantalla" id="iframe-girl"><div class="button-iframe-container"><button id="tancar-girl">TANCAR TRAILER</button></div><div class="iframe-container-trailer" id="iframe-container-girl"></div></div>
+			<div class="iframe-container fora-pantalla" id="iframe-drive"><div class="button-iframe-container"><button id="tancar-drive">TANCAR TRAILER</button></div><div class="iframe-container-trailer" id="iframe-container-drive"></div></div>
         </section>
 
 		<section id="sxxi" class="main-container">
@@ -153,42 +153,43 @@
 	<div id="formulari-container" class="nodisplay"> 				<!-- FORMULARI -->
 		<div id="formulari-container-inner" class="formulari-amagat">
 			<h2>Afegeix una pel·lícula</h2>
-			<form method="POST" action="pellicules_add.php" enctype="multipart/form-data">
-				<label for="titol" class="form-padd-top">Títol de la pel·lícula</label>
-				<input type="text" id="titol" name="titol">
+			<h3>Tots els camps són obligatoris</h3>
+			<form onsubmit="return valida_form();" method="POST" action="pellicules_add.php" enctype="multipart/form-data">
+				<label for="titol" class="form-padd-top" maxlength="49">Títol de la pel·lícula</label>
+				<input type="text" id="titol" name="titol" onblur="check_titol()">
 				<div class="form-row">
 					<div class="form-col">
-						<label for="director" class="form-padd-top">Director</label>
-						<input type="text" id="director" name="director">
+						<label for="director" class="form-padd-top" maxlength="28">Director</label>
+						<input type="text" id="director" name="director" onblur="check_director()">
 					</div>
 					<div class="form-col">
-						<label for="pais" class="form-padd-top">País</label>
-						<input type="text" id="pais" name="pais">
+						<label for="pais" class="form-padd-top" maxlength="19">País</label>
+						<input type="text" id="pais" name="pais" onblur="check_pais()">
 					</div>
 				</div>
 					<label for="any" class="form-padd-top">Any d'estrena</label>
-					<input type="number" min="1900" max="2022" id="any" name="any">
+					<input type="number" min="1900" max="2022" id="any" name="any" onblur="check_any()">
 
 				<div id="grup-animacio" class="form-padd-top">
-					<label for="animació">És una pel·lícula d'animació?</label>
+					<label for="animació" id="label-animacio">És una pel·lícula d'animació?</label>
 					<input type="radio" id="animacio-s" name="animacio" value="0" class=""><span>Sí</span>
 					<input type="radio" id="animacio-n" name="animacio" value="1"><span>No</span>
 				</div>
 
 				<div id="grup-dona">
-					<label for="dona">La directora és una dona?</label>
+					<label for="dona" id="label-dona">La directora és una dona?</label>
 					<input type="radio" id="dona-s" name="dona" value="0" class=""><span>Sí</span>
 					<input type="radio" id="dona-n" name="dona" value="1"><span>No</span>
 				</div>
 
 				<div id="grup-comedia">
-					<label for="comedia">És una comèdia?</label>
+					<label for="comedia" id="label-comedia">És una comèdia?</label>
 					<input type="radio" id="comedia-s" name="comedia" value="0" class=""><span>Sí</span>
 					<input type="radio" id="comedia-n" name="comedia" value="1"><span>No</span>
 				</div>
 
 					<label for="puntuacio">Puntuació</label>
-					<input type="number" min="0" max="" id="puntuacio" name="puntuacio">
+					<input type="number" min="0" max="" id="puntuacio" name="puntuacio" onblur="check_puntuacio()">
 				<div>
 
 				</div>
@@ -200,6 +201,7 @@
 	</div>
 
 	<footer>
+		<script type="text/javascript" src="validar-formulari.js"></script>
 	</footer>
 	
 </body>

@@ -83,13 +83,14 @@ a.eliminar:hover {color: white; text-decoration: none;}
 #mobile-menu, #off-canvas {display: none;}
 
 body#video {padding: 0;}
-#video-container {width: 100%;}
+.video-container {width: 100%;}
 video {display: block;}
 
 #formulari-container {position: fixed; inset: 0 0 0 0; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; z-index: 1100; }
 #formulari-container-inner {background-color: #E50914; padding:50px; border-radius: 4px; display: flex; flex-direction: column; justify-content: center;}
 form {display: flex; flex-direction: column; justify-content: center; align-items: center;}
 #formulari-container h2 {font-size: 40px; font-style: italic; letter-spacing: 0.25ch; padding-bottom: 20px; text-align: center;}
+#formulari-container h3 {color: #f99f9f; font-size: 24px; line-height: 0; text-align: center; padding-bottom: 10px;}
 label {font-size: 20px; font-weight: 700; color: white; line-height: 2; letter-spacing: 0.25ch;}
 div[id*='grup'] {line-height: 0;}
 div[id*='grup'] span {font-size: 20px; color: #f99f9f; padding-left: 10px; font-weight: 700;}
@@ -108,7 +109,7 @@ input[type="radio"] {width: 10px;}
 #pujar-imatge:hover::after {background-color: #f99f9f; color: #520505; cursor: pointer;}
 button#tancar-formulari {margin: auto; color: #f99f9f; background: transparent; font-size: 16px; font-weight: 700; text-decoration: underline; border: 0; padding-top: 20px;}
 button#tancar-formulari:hover {cursor: pointer; color:#520505;}
-
+input[type="radio"] {accent-color: #520505; position: relative;}
 input[type="submit"] {width: 200px; height: 50px; margin-top: 20px; background-color: #f99f9f; color: #520505; border:0; font-size: 16px; font-weight: 700; display: flex; justify-content: center; align-items: center; border-radius: 4px;}
 input[type="submit"]:hover {background-color: white; color: #E50914; cursor: pointer;}
 
@@ -133,7 +134,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {-webkit-appe
 .button-iframe-container {display: flex; justify-content: end; align-items: start; padding-right: 10%; padding-top: 2.25%;}
 .iframe-container button {width: fit-content; background-color: #E50914; color: white; text-decoration: none; font-size: 25px; border-radius: 4px; font-weight: 700; padding: 10px 20px; border: 0;}
 .iframe-container button:hover {background-color: #f99f9f; color: #520505; cursor: pointer;}
-iframe {width: 45%; aspect-ratio: 16/9; margin: auto;}
+.iframe-container-trailer {width: 45%; margin: auto;}
+iframe {width: 100%; aspect-ratio: 192/108;}
 
 
 .fora-pantalla {transform: translateX(-100%)}
@@ -186,3 +188,13 @@ iframe {width: 45%; aspect-ratio: 16/9; margin: auto;}
             @keyframes tornar-afegeix {
                 0% {transform: translate(100%, 100%);}
                 100% {transform: translate(0, 0);}}
+
+.canviar-brillo {animation: canviar-brillo 2000ms infinite;}
+
+            @keyframes canviar-brillo {
+                0% {filter: brightness(1);}
+                50% {filter: brightness(0);}
+                100% {filter: brightness(1);}}
+
+/*input[type="radio"]::before {
+    content: ''; position: absolute; background-color: #520505; width: 12px; height: 12px; top: 0; left: 0; border-radius: 50%;}*/
