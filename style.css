@@ -115,7 +115,7 @@ input[type="submit"]:hover {background-color: white; color: #E50914; cursor: poi
 
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;}
 
-#afegeix {width: 190px; height: 190px; border-radius: 100% 0 0 0 ; display: flex; justify-content: center; align-items: center; background-color: #E50914; position: fixed; z-index: 1000; text-align: center; color: white; font-weight: 700; font-style: italic; font-size: 20px; bottom: 0; right: 0; padding: 30px 20px 0 50px; line-height: 1.5; letter-spacing: 0.1ch;}
+#afegeix {width: 190px; height: 190px; border-radius: 100% 0 0 0 ; display: flex; justify-content: center; align-items: center; background-color: #E50914; position: fixed; z-index: 800; text-align: center; color: white; font-weight: 700; font-style: italic; font-size: 20px; bottom: 0; right: 0; padding: 30px 20px 0 50px; line-height: 1.5; letter-spacing: 0.1ch;}
 #afegeix:hover {background-color: white; color: #E50914; cursor: pointer;}
 
 #video-tocho .splide__track {margin: 0; width: 100%;}
@@ -160,7 +160,7 @@ iframe {width: 100%; aspect-ratio: 192/108;}
             @keyframes show-formulari {
                 0% {background-color: #52050500}
                 50% {background-color: #ff000066}
-                100% {background-color: #520505cc}
+                100% {background-color: #520505f7}
             }
 
 .moure-cap-amunt {animation: moure-cap-amunt 1000ms forwards}
@@ -196,5 +196,7 @@ iframe {width: 100%; aspect-ratio: 192/108;}
                 50% {filter: brightness(0);}
                 100% {filter: brightness(1);}}
 
-/*input[type="radio"]::before {
-    content: ''; position: absolute; background-color: #520505; width: 12px; height: 12px; top: 0; left: 0; border-radius: 50%;}*/
+/*                .stop-scrolling {
+                    height: 100%;
+                    overflow: hidden;
+                  } */

@@ -4,7 +4,7 @@ $(document).ready(function(){ /* inici JQUERY */
 
 $.getJSON ("llista_original.php", function(pelis) {
 
-    setTimeout(function() {$("#carregant").fadeOut();}, 1000)
+    /*setTimeout(function() {$("#carregant").fadeOut();}, 4000)*/
 
 
     estrellaOn = '<img src="img/stars/star_on.png">';
@@ -46,7 +46,7 @@ $.getJSON ("llista_original.php", function(pelis) {
         
         if(pelis[n]["comedia"]==1) {$('#splide__list_comedia').append(imprimir);}
 
-        if(pelis[n]["pais"]!="USA" && pelis[n]["pais"]!="UK") {$('#splide__list_no-english').append(imprimir);}
+        if(pelis[n]["pais"]!="USA" && pelis[n]["pais"]!="UK" && pelis[n]["pais"]!="NOVA ZELANDA" && pelis[n]["pais"]!="ÀFRICA DEL SUD" && pelis[n]["pais"]!="AUSTRÀLIA") {$('#splide__list_no-english').append(imprimir);}
              
     }
 
@@ -59,7 +59,7 @@ $.getJSON ("llista_original.php", function(pelis) {
         var elms = document.getElementsByClassName( 'splide' );
         for ( var i = 0; i < elms.length; i++ ) {
 
-            if(i==0) {new Splide( elms[ i ], {type: 'loop', perPage: 1, pagination: false, autoplay: true}).mount();}
+            if(i==0) {new Splide( elms[ i ], {type: 'loop', perPage: 1, pagination: false, autoplay: true, interval: 5000}).mount();}
             else {new Splide( elms[ i ], {type: 'loop', perPage: 6}).mount();}}}
         
     else {
@@ -72,14 +72,24 @@ $.getJSON ("llista_original.php", function(pelis) {
 /* final JSON */
 });
 
+$(window).on('load', function () {
+    $("#carregant").fadeOut(1000);
+});
+
 /* AFEGIR PELÍCULES */
 
 $("#afegeix").click(function()
 {
     $(this).addClass("desplazar-afegeix");
+    $("form").trigger("reset");
     $("#formulari-container").removeClass("nodisplay");
     $("#formulari-container").addClass("show-formulari");
     $("#formulari-container-inner").addClass("moure-cap-amunt");
+    var x=window.scrollX;
+    var y=window.scrollY;
+    window.onscroll=function(){window.scrollTo(x, y);};
+
+    /*$('body').addClass('stop-scrolling');*/
 
 })
 
@@ -91,6 +101,8 @@ $("#tancar-formulari").click(function()
     $("label").removeClass("canviar-brillo");
     $(':input').removeAttr('placeholder');
     $("form").trigger("reset");
+    window.onscroll=function(){}
+    /*$('body').removeClass('stop-scrolling');*/
     setTimeout(function() {$("#formulari-container").addClass("nodisplay"); $("#formulari-container").removeClass("amaga-formulari"); $("#afegeix").removeClass("tornar-afegeix");$("#afegeix").removeClass("desplazar-afegeix");$(window).off('scroll');}, 1201)
     
 })
@@ -273,11 +285,17 @@ $("#tancar-drive").click(function(){
     $("#iframe-drive").removeClass("fora-pantalla");
     $("#iframe-drive").removeClass("moure-cap-a-dins")
     $("#iframe-drive").addClass("moure-cap-a-fora");
-    $("#iframe-container-drive").html('')
+    $("#iframe-container-drive").html('');
     setTimeout(function() {
         $("#iframe-drive").removeClass("moure-cap-a-fora")
         $("#iframe-drive").addClass("fora-pantalla");}
-        , 1200)})
+        , 1200)});
+
+$(".menu-button").click(function(){
+    $(".iframe-container-trailer").html('');
+    $(".iframe-container").removeClass("moure-cap-a-dins");
+    $(".iframe-container").addClass("fora-pantalla");});
+
 
 /* final JQUERY */ });
 
