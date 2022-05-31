@@ -80,7 +80,7 @@ a.eliminar:hover {color: white; text-decoration: none;}
 .order01 {order: 1;}
 .order02 {order: 2;}
 
-#mobile-menu, #off-canvas {display: none;}
+#off-canvas-but, #off-canvas {display: none;}
 
 body#video {padding: 0;}
 .video-container {width: 100%;}
