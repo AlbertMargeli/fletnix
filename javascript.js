@@ -68,7 +68,7 @@ $.getJSON ("llista_original.php", function(pelis) {
         var elms = document.getElementsByClassName( 'splide' );
         for ( var i = 0; i < elms.length; i++ ) {
     
-            if(i==0) {new Splide( elms[ i ], {type: 'loop', perPage: 1, pagination: false, /* autoplay: true chocho ,*/ interval: 5000}).mount();}
+            if(i==0) {new Splide( elms[ i ], {type: 'loop', perPage: 1, pagination: false, autoplay: true , interval: 5000}).mount();}
             else {new Splide( elms[ i ], {type: 'loop', perPage: 6}).mount();}}}
         
         else {
@@ -77,7 +77,7 @@ $.getJSON ("llista_original.php", function(pelis) {
 
             for ( var i = 0; i < elms.length; i++ ) {
     
-                if(i==0) {new Splide( elms[ i ], {type: 'loop', perPage: 1, pagination: false, arrows: false, /* autoplay: true chocho ,*/ interval: 5000}).mount();}
+                if(i==0) {new Splide( elms[ i ], {type: 'loop', perPage: 1, pagination: false, arrows: false, autoplay: true, interval: 5000}).mount();}
                 else {new Splide( elms[ i ], {type: 'loop', perPage: 2, arrows: false}).mount();}}}
 
 
